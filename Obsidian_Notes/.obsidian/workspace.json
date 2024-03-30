@@ -1,0 +1,259 @@
+{
+  "main": {
+    "id": "f5e1ac2952ddb6aa",
+    "type": "split",
+    "children": [
+      {
+        "id": "fb3a0f8a366a6c6e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "58fd2adc8ed4da22",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "ESP32/esp32.md",
+                "mode": "source",
+                "source": false
+              },
+              "pinned": true
+            }
+          },
+          {
+            "id": "d9db0920a5aa7f56",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "Files/Images/esp32_pinout.png"
+              },
+              "pinned": true
+            }
+          },
+          {
+            "id": "792554c222295332",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Sensors/PIR Sensor.md",
+                "mode": "source",
+                "source": false
+              },
+              "pinned": true
+            }
+          },
+          {
+            "id": "b5a47e7012be8c93",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Sensors/Servo Motor.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "cd689fad4197b8a4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "ESP32/analog_interfacing.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "7e13010f0143d0bd",
+    "type": "split",
+    "children": [
+      {
+        "id": "7e9367bb23bed12e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4cd0754b34340827",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "byModifiedTime"
+              }
+            }
+          },
+          {
+            "id": "f3661e4f0c2d66e3",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "21bfebc7e111d02e",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "right": {
+    "id": "097c73400dcdcb80",
+    "type": "split",
+    "children": [
+      {
+        "id": "818d6f29270e86cb",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f9cf6a17ad415f4a",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "ESP32/analog_interfacing.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "31d2ecc24633c8ce",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "ESP32/analog_interfacing.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "c25a31739d45c739",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "82864fd820c9f194",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "ESP32/analog_interfacing.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "homepage:Open homepage": false,
+      "workspaces:Manage workspace layouts": false,
+      "zk-prefixer:Create new unique note": false
+    }
+  },
+  "active": "cd689fad4197b8a4",
+  "lastOpenFiles": [
+    "Files/Images/esp32_pinout.png",
+    "Sensors/PIR Sensor.md",
+    "ESP32/esp32.md",
+    "Sensors/Servo Motor.md",
+    "Sensors/().md",
+    "Sensors/LDR Sensor.md",
+    "Sensors/Relay Module.md",
+    "Files/Images/Relay-pinout.webp",
+    "Files/Images/EnergyMonitoring.png.png",
+    "Files/Images/Pasted image 20240329055534.png",
+    "Files/Images/Pasted image 20240328225646.png",
+    "Files/Images/project_block_diagram.png",
+    "Files/Videos/Blynk_Tutorial/07-How to build a no-code asset tracking IoT solution with Blynk.mp4",
+    "Files/Videos/Blynk_Tutorial/03-Tutorial： set up and use Automations in the Blynk app.mp4",
+    "Files/Videos/Blynk_Tutorial/10-You won’t believe this IoT app was built with no code!.mp4",
+    "Files/Videos/Blynk_Tutorial/10-You won’t believe this IoT app was built with no code!.mp4.part",
+    "Files/Videos/Blynk_Tutorial/09-How to set up WiFi provisioning on Blynk + Device activation flow demo! (with ESP32).mp4",
+    "Files/Videos/Blynk_Tutorial/09-How to set up WiFi provisioning on Blynk + Device activation flow demo! (with ESP32).mp4.part",
+    "Files/Videos/Blynk_Tutorial/08-WiFi provisioning for IoT devices with Blynk.mp4",
+    "Files/Videos/Blynk_Tutorial/08-WiFi provisioning for IoT devices with Blynk.mp4.part",
+    "Files/Videos/Blynk_Tutorial/07-How to build a no-code asset tracking IoT solution with Blynk.mp4.part",
+    "Files/Videos/Blynk_Tutorial/06-Blynk IoT Platform Overview -  New explainer video!.mp4",
+    "Files/Diagrams/Mini_Project.canvas",
+    "ESP32/analog_interfacing.md",
+    "Main.md.md",
+    "Solar Tracking/Solar Tracking.md",
+    "Energy Monitoring/Energy Monitoring.md",
+    "Energy Monitoring/().md",
+    "Energy Monitoring/Monitoring Server.md",
+    "Files/Images/Mini_Project.png",
+    "Sensors/ZMPT101B.md",
+    "Sensors/SCT 013.md",
+    "templates/Template1.md",
+    "Energy Managment/Energy Management.md",
+    "Files/Diagrams/Pinout.canvas",
+    "Untitled.canvas",
+    "Energy Management.canvas",
+    "ESP32/esp32 Codes.md",
+    "scr.md",
+    "src/solarTrackingCode/Solar_tracking_using_arduino/solar_tracker.png",
+    "src/solarTrackingCode/Solar_tracking_using_arduino/Solar_tracking_using_arduino.md",
+    "src/solarTrackingCode/Solar_tracking_using_arduino/README.md",
+    "ESP32/solartracking.ino.md",
+    "().md",
+    "Files/Diagrams/Block Diagram.canvas",
+    "Pasted image 20240329024052.jpg",
+    "PIR Sensor(0).webp",
+    "Test/playground.md",
+    "Home.md",
+    "Untitled 1.md"
+  ]
+}
