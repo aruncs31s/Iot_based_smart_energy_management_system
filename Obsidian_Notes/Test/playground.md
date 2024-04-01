@@ -26,3 +26,51 @@ fn main(){
    println!("no of bytes read , {}", b1);
 }
 ```
+
+
+
+##### Programm to find the area of triangle
+
+```python
+length = int(input("Enter the Length"))
+breadth = int(input("Enter the Breadth"))
+area = (length * breadth)/2
+print("Area Is = " ,area)
+
+
+```
+
+
+```c
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+  int l, b, area;
+  printf("Enter Length and Breadth");
+  scanf("%d%d", &l, &b);
+
+  printf(" Area = %d", (l * b) / 2);
+}
+```
+
+
+```
+
+```
+
+
+```javascript
+let l = console.prompt("Enter the length") 
+let b = console.prompt("Enter the breadth")
+console.log((l*b)/2)
+```
+
+```javascript
+const readline = require('readline');
+const rl = readline.createInterface({
+ input: process.stdin,
+ output: process.stdout
+});
+rl.question('Please enter your input: ', (input) => {
+ console.log(`You entered: ${input}`);
+ rl.close();
+```

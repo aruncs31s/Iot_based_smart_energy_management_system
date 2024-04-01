@@ -76,6 +76,9 @@ print("Max Value = " ,2**N -1)
 ```
 
 
+
+
+
 #ComputeVoltage
 - Static
 ```rust

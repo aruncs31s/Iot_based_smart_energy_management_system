@@ -8,6 +8,7 @@ tags: []
 ## ESP32
 
 ### Contents
+- [Specs](#esp32%20specs)
 - [[Pinout.canvas|Pinout]]
 - [ADC Interfacing](/ESP32/analog_interfacing)
 * Interfacing
@@ -34,7 +35,11 @@ tags: []
 - Secure Boot and Flash Encryption.
 - Cryptographic Hardware Acceleration for AES, Hash (SHA-2), RSA, ECC and RNG
 
-
+###### More
+- [[ESP32_Specification.pdf]]
+- [[esp32-wroom-32_datasheet_en.pdf]]
+- [[Cadence_Tensillica_Xtensa_LX6_ds.pdf]]
+- 
 
 
 

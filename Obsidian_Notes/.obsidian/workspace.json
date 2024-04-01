@@ -4,75 +4,18 @@
     "type": "split",
     "children": [
       {
-        "id": "fb3a0f8a366a6c6e",
+        "id": "28520a2a210ecb4b",
         "type": "tabs",
         "children": [
           {
-            "id": "58fd2adc8ed4da22",
-            "type": "leaf",
-            "pinned": true,
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "ESP32/esp32.md",
-                "mode": "source",
-                "source": false
-              },
-              "pinned": true
-            }
-          },
-          {
-            "id": "d9db0920a5aa7f56",
-            "type": "leaf",
-            "pinned": true,
-            "state": {
-              "type": "image",
-              "state": {
-                "file": "Files/Images/esp32_pinout.png"
-              },
-              "pinned": true
-            }
-          },
-          {
-            "id": "792554c222295332",
-            "type": "leaf",
-            "pinned": true,
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Sensors/PIR Sensor.md",
-                "mode": "source",
-                "source": false
-              },
-              "pinned": true
-            }
-          },
-          {
-            "id": "b5a47e7012be8c93",
+            "id": "39b31095afbc0a5e",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Sensors/Servo Motor.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "cd689fad4197b8a4",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "ESP32/analog_interfacing.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "graph",
+              "state": {}
             }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "vertical"
@@ -101,7 +44,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "mini",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -122,8 +65,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "097c73400dcdcb80",
@@ -139,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "ESP32/analog_interfacing.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -156,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "ESP32/analog_interfacing.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -178,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "ESP32/analog_interfacing.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -203,57 +141,57 @@
       "zk-prefixer:Create new unique note": false
     }
   },
-  "active": "cd689fad4197b8a4",
+  "active": "39b31095afbc0a5e",
   "lastOpenFiles": [
-    "Files/Images/esp32_pinout.png",
-    "Sensors/PIR Sensor.md",
     "ESP32/esp32.md",
-    "Sensors/Servo Motor.md",
-    "Sensors/().md",
+    "ESP32/test.md",
+    "ESP32/analog_interfacing.md",
     "Sensors/LDR Sensor.md",
+    "Files/Diagrams/Mini_Project.canvas",
+    "Test/playground.md",
+    "Pinout.canvas.md",
+    "ldr-sensor.md",
+    "i.canvas",
+    "Files/PDFs/Solar Trackng System.pdf",
+    "Energy Monitoring/Energy Monitoring.md",
+    "Sensors/SCT 013.md",
+    "Sensors/ZMPT101B.md",
+    "Solar Tracking/Solar Tracking.md",
+    "Main.md",
+    "Files/PDFs/Cadence_Tensillica_Xtensa_LX6_ds.pdf",
+    "Files/PDFs/esp32-wroom-32_datasheet_en.pdf",
+    "Files/Images/esp32_pinout.png",
+    "Files/PDFs/ESP32_Specification.pdf",
+    "Files/PDFs/17_SI_10_CSDRA2020.pdf",
+    "Files/PDFs/Design_and_Implementation_of_an_IoT-Enabled_Smart_Plug_Socket_for_Home_Energy_Management.pdf",
+    "Files/PDFs/157-ArticleText-253-1-10-20220817.pdf",
+    "Energy Managment/Energy Management.md",
+    "Files/PDFs/Muriithi_Valentine_2022_ENG_CapstoneProject.pdf",
+    "Files/PDFs/829ea9a269a8f257.pdf",
+    "Files/PDFs/ZMPT101B.pdf",
+    "src/solarTrackingCode/Solar_tracking_using_arduino/README.md",
+    "Sensors/Servo Motor.md",
+    "Files/Diagrams/Pinout.canvas",
+    "Main.md.md",
+    "Sensors/PIR Sensor.md",
+    "Sensors/().md",
     "Sensors/Relay Module.md",
     "Files/Images/Relay-pinout.webp",
     "Files/Images/EnergyMonitoring.png.png",
     "Files/Images/Pasted image 20240329055534.png",
     "Files/Images/Pasted image 20240328225646.png",
     "Files/Images/project_block_diagram.png",
-    "Files/Videos/Blynk_Tutorial/07-How to build a no-code asset tracking IoT solution with Blynk.mp4",
-    "Files/Videos/Blynk_Tutorial/03-Tutorial： set up and use Automations in the Blynk app.mp4",
-    "Files/Videos/Blynk_Tutorial/10-You won’t believe this IoT app was built with no code!.mp4",
-    "Files/Videos/Blynk_Tutorial/10-You won’t believe this IoT app was built with no code!.mp4.part",
-    "Files/Videos/Blynk_Tutorial/09-How to set up WiFi provisioning on Blynk + Device activation flow demo! (with ESP32).mp4",
-    "Files/Videos/Blynk_Tutorial/09-How to set up WiFi provisioning on Blynk + Device activation flow demo! (with ESP32).mp4.part",
-    "Files/Videos/Blynk_Tutorial/08-WiFi provisioning for IoT devices with Blynk.mp4",
-    "Files/Videos/Blynk_Tutorial/08-WiFi provisioning for IoT devices with Blynk.mp4.part",
-    "Files/Videos/Blynk_Tutorial/07-How to build a no-code asset tracking IoT solution with Blynk.mp4.part",
-    "Files/Videos/Blynk_Tutorial/06-Blynk IoT Platform Overview -  New explainer video!.mp4",
-    "Files/Diagrams/Mini_Project.canvas",
-    "ESP32/analog_interfacing.md",
-    "Main.md.md",
-    "Solar Tracking/Solar Tracking.md",
-    "Energy Monitoring/Energy Monitoring.md",
     "Energy Monitoring/().md",
     "Energy Monitoring/Monitoring Server.md",
     "Files/Images/Mini_Project.png",
-    "Sensors/ZMPT101B.md",
-    "Sensors/SCT 013.md",
     "templates/Template1.md",
-    "Energy Managment/Energy Management.md",
-    "Files/Diagrams/Pinout.canvas",
-    "Untitled.canvas",
     "Energy Management.canvas",
     "ESP32/esp32 Codes.md",
     "scr.md",
     "src/solarTrackingCode/Solar_tracking_using_arduino/solar_tracker.png",
     "src/solarTrackingCode/Solar_tracking_using_arduino/Solar_tracking_using_arduino.md",
-    "src/solarTrackingCode/Solar_tracking_using_arduino/README.md",
-    "ESP32/solartracking.ino.md",
-    "().md",
     "Files/Diagrams/Block Diagram.canvas",
     "Pasted image 20240329024052.jpg",
-    "PIR Sensor(0).webp",
-    "Test/playground.md",
-    "Home.md",
-    "Untitled 1.md"
+    "PIR Sensor(0).webp"
   ]
 }

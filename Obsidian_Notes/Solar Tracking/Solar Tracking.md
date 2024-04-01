@@ -1,3 +1,9 @@
+---
+id: Solar Tracking
+aliases: []
+tags: []
+---
+
 ## Solar Tracking
 - [Introduction](Introduction)
 - [Tasks](#tasks)
@@ -10,7 +16,7 @@
 - [ ] 3D print the model
 
 #### Introduction
-*Adjust the pannel position according to available sunligh using Servo motor*
+*Adjust the panel position according to available sunlight using Servo motor*
 
 #working
 [[LDR Sensor]] 
@@ -231,3 +237,10 @@ void loop() {
   delay(50);
 }
 ```
+
+
+
+#### References
+
+- [[Solar Trackng System.pdf]]
+- 

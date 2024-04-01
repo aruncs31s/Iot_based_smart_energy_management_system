@@ -18,7 +18,6 @@
 		{"id":"3c905e8f30d3d119","type":"text","text":"\n<br>\n\n\n#### Relay Module","x":483,"y":585,"width":225,"height":150},
 		{"id":"746e1b42e89104d9","type":"text","text":"#### Equipment 2","x":770,"y":560,"width":225,"height":50},
 		{"id":"4eff6f465a0d4b04","type":"text","text":"<h1 align=\"center\"> Iot Based Smart Energy Management System\n</h1>\n","x":-1040,"y":-400,"width":454,"height":140},
-		{"id":"3b8ba2d990a880d9","type":"file","file":"Sensors/LDR Sensor.md","x":-200,"y":-553,"width":512,"height":453},
 		{"id":"0e620382451ac6e0","type":"file","file":"Sensors/Servo Motor.md","x":396,"y":-553,"width":564,"height":453},
 		{"id":"59f6ad537defdc07","type":"text","text":"#### Equipment 1","x":770,"y":685,"width":225,"height":50},
 		{"id":"e6fce4f2d07afe86","type":"text","text":"<br>\n<br>\n<br>\n\n\n\n\n\n<h3 align=\"center\"> ESP32</h2>\n\t\t   ","x":-230,"y":720,"width":250,"height":280},
@@ -26,7 +25,8 @@
 		{"id":"f6e0c0800489f5d3","type":"file","file":"Sensors/LDR Sensor.md","x":20,"y":1080,"width":518,"height":440,"color":"5"},
 		{"id":"2f00c57cd179b2f4","type":"file","file":"Sensors/Relay Module.md","x":596,"y":1080,"width":524,"height":440,"color":"5"},
 		{"id":"a93ae24762ef413a","type":"file","file":"Files/Images/esp32_pinout.png","x":458,"y":1781,"width":400,"height":222},
-		{"id":"eb4e7772d526bd49","type":"file","file":"ESP32/esp32.md","x":-413,"y":1781,"width":641,"height":400}
+		{"id":"eb4e7772d526bd49","type":"file","file":"ESP32/esp32.md","x":-413,"y":1781,"width":641,"height":400},
+		{"id":"3b8ba2d990a880d9","type":"file","file":"Sensors/LDR Sensor.md","x":-200,"y":-553,"width":512,"height":453}
 	],
 	"edges":[
 		{"id":"f455234c61aed001","fromNode":"e6fce4f2d07afe86","fromSide":"left","toNode":"1115801c301b29da","toSide":"right"},
