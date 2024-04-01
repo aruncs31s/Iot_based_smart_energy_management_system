@@ -164,15 +164,17 @@ void loop() {
 
 #PinConfiguration
 
-| Pin No | GPIO   | Used For                                        |     |
-| ------ | ------ | ----------------------------------------------- | --- |
-| D2     | GPIO2  | Connecting the Horzontal Servo - Solar Tracking |     |
-| D15    | GPIO15 | Connecting the Vertical Servo - Solar Tracking  |     |
-| D34    | GPIO34 | Connecting the LDR at Top Right                 |     |
-| D35    | GPIO35 | Connecting the LDR at Bottom Right              |     |
-| VP     | GPIO36 | Connecting the LDR at Top Left                  |     |
-| VN     | GPIO39 | Connecting the LDR at Top Right                 |     |
-| D13    | GPIO13 | Connecting the PIR Sensor                       |     |
+
+
+| Pin No | GPIO   | Used For                                        |
+| :----- | :----- | :---------------------------------------------- |
+| D2     | GPIO2  | Connecting the Horzontal Servo - Solar Tracking |
+| D15    | GPIO15 | Connecting the Vertical Servo - Solar Tracking  |
+| D34    | GPIO34 | Connecting the LDR at Top Right                 |
+| D35    | GPIO35 | Connecting the LDR at Bottom Right              |
+| VP     | GPIO36 | Connecting the LDR at Top Left                  |
+| VN     | GPIO39 | Connecting the LDR at Top Right                 |
+| D13    | GPIO13 | Connecting the PIR Sensor                       |
 #pinDefine
 ```c
 // Define the GPIO (2,15) pin connected to the servo
