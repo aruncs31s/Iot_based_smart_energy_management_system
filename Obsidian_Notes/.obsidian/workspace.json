@@ -4,18 +4,79 @@
     "type": "split",
     "children": [
       {
-        "id": "28520a2a210ecb4b",
+        "id": "ada849ef82ffc2df",
         "type": "tabs",
         "children": [
           {
-            "id": "39b31095afbc0a5e",
+            "id": "65f080cb56c6fafb",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "Files/Images/esp32_pinout.png"
+              },
+              "pinned": true
+            }
+          },
+          {
+            "id": "fd1eef4e30df055e",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "ESP32/esp32.md",
+                "mode": "source",
+                "source": false
+              },
+              "pinned": true
+            }
+          },
+          {
+            "id": "0a1a52da79d11974",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {}
+              "type": "canvas",
+              "state": {
+                "file": "Files/Diagrams/Pinout.canvas",
+                "viewState": {
+                  "x": -275,
+                  "y": -39,
+                  "zoom": 0
+                }
+              }
+            }
+          },
+          {
+            "id": "fba64d252c85be18",
+            "type": "leaf",
+            "state": {
+              "type": "canvas",
+              "state": {
+                "file": "Files/Diagrams/Mini_Project.canvas",
+                "viewState": {
+                  "x": 757.2359703377867,
+                  "y": 113.88406810506733,
+                  "zoom": -0.9027573646375753
+                }
+              }
+            }
+          },
+          {
+            "id": "c00d61fc4ae2db0f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "ESP32/esp32.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -65,7 +126,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "097c73400dcdcb80",
@@ -81,6 +143,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "ESP32/esp32.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +160,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "ESP32/esp32.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +182,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "ESP32/esp32.md"
+              }
             }
           }
         ]
@@ -136,18 +202,58 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "homepage:Open homepage": false,
       "workspaces:Manage workspace layouts": false,
-      "zk-prefixer:Create new unique note": false
+      "zk-prefixer:Create new unique note": false,
+      "homepage:Open homepage": false
     }
   },
-  "active": "39b31095afbc0a5e",
+  "floating": {
+    "id": "36b312e37ad40a76",
+    "type": "floating",
+    "children": [
+      {
+        "id": "c0ab72b7e08c011d",
+        "type": "window",
+        "children": [
+          {
+            "id": "a5dbf3ee11cd67d8",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "03bf293722e5d4f0",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Solar Tracking/Solar Tracking.md",
+                    "mode": "source",
+                    "source": false
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "vertical",
+        "x": 430,
+        "y": 107,
+        "width": 600,
+        "height": 601,
+        "maximize": false,
+        "zoom": 1.5
+      }
+    ]
+  },
+  "active": "c00d61fc4ae2db0f",
   "lastOpenFiles": [
+    "Solar Tracking/Solar Tracking.md",
     "ESP32/esp32.md",
+    "Files/Diagrams/Mini_Project.canvas",
+    "Files/Images/esp32_pinout.png",
+    "Files/Diagrams/Pinout.canvas",
     "ESP32/test.md",
     "ESP32/analog_interfacing.md",
     "Sensors/LDR Sensor.md",
-    "Files/Diagrams/Mini_Project.canvas",
     "Test/playground.md",
     "Pinout.canvas.md",
     "ldr-sensor.md",
@@ -156,11 +262,9 @@
     "Energy Monitoring/Energy Monitoring.md",
     "Sensors/SCT 013.md",
     "Sensors/ZMPT101B.md",
-    "Solar Tracking/Solar Tracking.md",
     "Main.md",
     "Files/PDFs/Cadence_Tensillica_Xtensa_LX6_ds.pdf",
     "Files/PDFs/esp32-wroom-32_datasheet_en.pdf",
-    "Files/Images/esp32_pinout.png",
     "Files/PDFs/ESP32_Specification.pdf",
     "Files/PDFs/17_SI_10_CSDRA2020.pdf",
     "Files/PDFs/Design_and_Implementation_of_an_IoT-Enabled_Smart_Plug_Socket_for_Home_Energy_Management.pdf",
@@ -171,7 +275,6 @@
     "Files/PDFs/ZMPT101B.pdf",
     "src/solarTrackingCode/Solar_tracking_using_arduino/README.md",
     "Sensors/Servo Motor.md",
-    "Files/Diagrams/Pinout.canvas",
     "Main.md.md",
     "Sensors/PIR Sensor.md",
     "Sensors/().md",
