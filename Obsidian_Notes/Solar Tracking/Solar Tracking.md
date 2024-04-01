@@ -348,4 +348,3 @@ void loop() {
 #### References
 
 - [[Solar Trackng System.pdf]]
-- 
