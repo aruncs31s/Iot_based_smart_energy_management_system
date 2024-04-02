@@ -1,26 +1,17 @@
 ---
 id: Main
-aliases: []
-tags: []
+aliases:
+  - mini-project
+tags:
+  - project
+  - mini-project
+Starting Date: 2024-01-26
+Target Date: 2024-04-07
 ---
 <h1 align="center" >Iot Based Smart Energy Managment System</h1>
 
 
-
-
 ## Contents
-<!--toc:start-->
-  - [Todos](#todos)
-  - [Tasks](#tasks)
-  - [Block Diagram](#block-diagram)
-  - [References](#references)
-<!--toc:end-->
-
-
-
-
-### Links 
-
 - [Diagrams]()
 	- [Mini_Project](Mini_Project.canvas)
 	- [[Block Diagram.canvas|Block Diagram]]
@@ -46,9 +37,6 @@ tags: []
 
 
 #### Tasks
-
-
-
 
 
 #### Block Diagram
