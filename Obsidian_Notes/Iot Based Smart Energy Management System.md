@@ -8,7 +8,7 @@ tags:
 Starting Date: 2024-01-26
 Target Date: 2024-04-07
 ---
-<h1 align="center" >Iot Based Smart Energy Managment System</h1>
+<h1 align="center"> <b>Iot Based Smart Energy Managment System</b></h1>
 
 
 ## Contents
