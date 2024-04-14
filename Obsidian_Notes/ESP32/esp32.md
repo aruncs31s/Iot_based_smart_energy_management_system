@@ -15,6 +15,8 @@ tags: []
 	- [LDR Interfacing](#ldr%20interfacing)
 	- [PIR Interfaing](#pir%20interfacing)
 	- [Servo Motor Interfacing](#servo%20motor%20interfacing)
+	- [Relay Module Interfacing](#relay%20module%20interfacing)
+	- 
 - Whole Code
 	- [Servo Motor]()
 - [Interfaced Pins](#interfaced%20pins)
@@ -159,6 +161,24 @@ void loop() {
   }
 }
 ```
+
+#### Relay Module Interfacing
+[Source](https://esp32io.com/tutorials/esp32-relay)
+
+![|500x300](https://esp32io.com/images/tutorial/esp32-relay-pinout.jpg)
+
+
+| Pins | Uses                                   |
+| ---- | -------------------------------------- |
+| DC + | Connect to +5v                         |
+| DC - | Connect to GND                         |
+| IN   | Receives the control signal from ESP32 |
+| NO   | Normally Open Pin                      |
+| NC   | Normally Closed Pin                    |
+| COM  | Common Pin                             |
+
+
+
 
 #### Interfaced Pins
 

@@ -11,9 +11,13 @@ Gtihub : https://github.com/aruncs31s/
 #include <ESP32Servo.h>
 
 // Define the GPIO (2,15) pin connected to the servo
+
 const int SERVO_PIN_1 = 2;
 const int SERVO_PIN_2 = 15;
+
 // Define the GPIO ADC Pins for LDR Sensors
+// TODO:  Rearange the pins or rearange the structure where the ldr is placed to match the reading values and position
+
 const int LDR_LEFT_TOP = 36;
 const int LDR_LEFT_BOTTOM = 39;
 const int LDR_RIGHT_TOP = 34;
@@ -43,9 +47,13 @@ const int led2 = 4;
 //
 
 
+// TODO: Figure out Blynk or Thinkspeak interfacing code
 
 void setup() {
   Serial.begin(9600); 
+
+  // Set ADC value as 10 bit 
+  analogReadResolution(10);
 
   // Attach the servo to the GPIO pin
   Servo_1.attach(SERVO_PIN_1);
@@ -55,8 +63,7 @@ void setup() {
   Servo_1.write(0);
   Servo_2.write(0);
 
-  delay(500); // Need To find Out :)
-
+  delay(500); 
 
   // Read The LDR Values
   //create a task that will be executed in the Task1code() function, with priority 1 and executed on core 0
@@ -97,6 +104,7 @@ void Solar_Management( void * pvParameters ){
     (reading_LDR_right_bottom + reading_LDR_right_top) / 2;
   int reading_LDR_bottom_avg =
     (reading_LDR_right_bottom + reading_LDR_left_bottom) / 2;
+  
 
   int reading_LDR_top_avg = (reading_LDR_right_top + reading_LDR_left_top) / 2;
   while (1){
@@ -135,8 +143,18 @@ void Solar_Management( void * pvParameters ){
       Servo_1.write(current_Servo_1_value);
     }
 
-    delay(50);
+    delay(3000); 
+    Serial.print("bottom left ");
+    Serial.println(reading_LDR_left_bottom);
+    Serial.print("top left ");
+    Serial.println(reading_LDR_left_top);
+    Serial.print("top right ");
+    Serial.println( reading_LDR_right_top);
+    Serial.print("bottom right ");
+    Serial.println( reading_LDR_right_bottom);
+
   }
+
 }
 
 //Task2code: blinks an LED every 700 ms
@@ -176,7 +194,7 @@ void Energy_Management(void * pvParameters ){
       warm_up = 1;
       delay(1000);
     } 
-  }
+     }
 
 }
 

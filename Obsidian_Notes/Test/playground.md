@@ -74,3 +74,7 @@ rl.question('Please enter your input: ', (input) => {
  console.log(`You entered: ${input}`);
  rl.close();
 ```
+
+$$
+x = \frac{-b \underset {-}{+}\sqrt{b^2 - 4ac}}{2a}
+$$[quadratic x](templates/quadratic%20x.md)
