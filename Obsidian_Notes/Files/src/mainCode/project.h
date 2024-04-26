@@ -5,7 +5,7 @@ public:
     struct LDR {
 
       int p1, p2, p3, p4;
-      std::vector<int> avg_LDR(std::vector<int>);
+      int avg_LDR(std::vector<int>);
     } LDR;
     struct Servo {
 
