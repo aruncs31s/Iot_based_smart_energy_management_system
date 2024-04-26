@@ -34,19 +34,19 @@ int main() {
       .p2 = VERTICAL_SERVO,
   };
 
-  std::vector<int> avg = SolarTracking.avg_LDR(
-      {SolarTracking.pins.LDR.p1, SolarTracking.pins.LDR.p2,
-       SolarTracking.pins.LDR.p2, SolarTracking.pins.LDR.p4});
+  int avg_top = SolarTracking.avg_LDR(
+      {SolarTracking.pins.LDR.p1, SolarTracking.pins.LDR.p2});
+  int avg_bottom = SolarTracking.avg_LDR(
+      {SolarTracking.pins.LDR.p3, SolarTracking.pins.LDR.p4});
+  int avg_right = SolarTracking.avg_LDR(
+      {SolarTracking.pins.LDR.p1, SolarTracking.pins.LDR.p3});
+  int avg_left = SolarTracking.avg_LDR(
+      {SolarTracking.pins.LDR.p2, SolarTracking.pins.LDR.p4});
   // const int &x = HORIZONTAL_SERVO;
   // std::cout << avg[1] << "";
-  void *p;
-  p = &avg;
   // for (int i = 0; i < avg.size(); ++i) {
   //   std::cout << avg[i] << "\n";
   // }
-  for (int i = 0; i < avg.size(); ++i) {
-    std::cout << *(p + i * 4);
-  }
   // int avg_left,avg[0];;
   // int avg_right = avg[1];
   // cout << SolarTracking.pins.LDR.p1;
