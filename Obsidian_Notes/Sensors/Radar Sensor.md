@@ -36,7 +36,7 @@ The RCWL-0516 module employs ==“Doppler Radar”== – a specialized radar tha
 #### Interfacing
 #TestCode 
 
-```C++
+```cpp
 int sensorPin = 18;
 int motionState = LOW;
  

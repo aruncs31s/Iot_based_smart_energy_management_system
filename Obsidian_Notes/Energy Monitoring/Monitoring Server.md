@@ -1,28 +1,46 @@
+---
+id: Monitoring Server
+aliases: []
+tags: []
+---
+
 # Monitoring Server
 
+## Contents
+
+- [[Monitoring Website]]
+- [[Thinkspeak]]
+
 ## Thinkspeak
+
 - [Source](https://randomnerdtutorials.com/esp32-thingspeak-publish-arduino/)
 - [Source 2]()
-#Requirements
-1. [[Projects/Iot_based_smart_energy_management_system/Obsidian_Notes/ESP32/esp32|esp32]]
+  #Requirements
 
+1. [[Projects/Iot_based_smart_energy_management_system/Obsidian_Notes/ESP32/esp32|esp32]]
 
 `ThingSpeak` allows you to publish your sensor readings to their website and plot them in charts with timestamps.
 
 #### Setup
-1. Installing the ThingSpeak Library
-2. [Go to ThingSpeak](https://thingspeak.com/) an click the “**Get Started For Free**” button to create a new account. This account is linked to a Mathworks account. So, if you already have a Mathworks account, you should log in with that account
-3. Creating New Channel
-	1. After your account is ready, sign in, open the “**Channels**” tab and select “**My Channels**“.
-	2. Type a name for your channel and add a description. In this example, we’ll just publish temperature. If you want to publish multiple readings (like humidity and pressure), you can enable more fields later
-4. Customizing Chart
-	- The chart can be customized, go to your **Private View** tab and click on the edit icon. 
-5. API Key
-6. To send values from the ESP32 to ThingSpeak, you need the Write API Key. Open the “**API Keys**” and copy the key
+
+> 1.  Installing the ThingSpeak Library
+> 2.  [Go to ThingSpeak](https://thingspeak.com/) an click the “**Get Started For Free**” button to create a new account. This account is linked to a Mathworks account. So, if you already have a Mathworks account, you should log in with that account
+> 3.  Creating New Channel
+
+    1. After your account is ready, sign in, open the “**Channels**” tab and select “**My Channels**“.
+    2. Type a name for your channel and add a description. In this example, we’ll just publish temperature. If you want to publish multiple readings (like humidity and pressure), you can enable more fields later
+
+> 4.  Customizing Chart
+
+    - The chart can be customized, go to your **Private View** tab and click on the edit icon.
+
+> 5.  API Key
+> 6.  To send values from the ESP32 to ThingSpeak, you need the Write API Key. Open the “**API Keys**” and copy the key
 
 #exampleCode
+
 ```c
-  
+
   The above copyright notice and this permission notice shall be included in all
   copies or substantial portions of the Software.
 */
@@ -32,7 +50,7 @@
 #include <Adafruit_BME280.h>
 #include <Adafruit_Sensor.h>
 
-const char* ssid = "REPLACE_WITH_YOUR_SSID";   // your network SSID (name) 
+const char* ssid = "REPLACE_WITH_YOUR_SSID";   // your network SSID (name)
 const char* password = "REPLACE_WITH_YOUR_PASSWORD";   // your network password
 
 WiFiClient  client;
@@ -62,22 +80,22 @@ void initBME(){
 void setup() {
   Serial.begin(115200);  //Initialize serial
   initBME();
-  
-  WiFi.mode(WIFI_STA);   
-  
+
+  WiFi.mode(WIFI_STA);
+
   ThingSpeak.begin(client);  // Initialize ThingSpeak
 }
 
 void loop() {
   if ((millis() - lastTime) > timerDelay) {
-    
+
     // Connect or reconnect to WiFi
     if(WiFi.status() != WL_CONNECTED){
       Serial.print("Attempting to connect");
       while(WiFi.status() != WL_CONNECTED){
-        WiFi.begin(ssid, password); 
-        delay(5000);     
-      } 
+        WiFi.begin(ssid, password);
+        delay(5000);
+      }
       Serial.println("\nConnected.");
     }
 
@@ -85,13 +103,13 @@ void loop() {
     temperatureC = bme.readTemperature();
     Serial.print("Temperature (ºC): ");
     Serial.println(temperatureC);
-    
+
     //uncomment if you want to get temperature in Fahrenheit
     /*temperatureF = 1.8 * bme.readTemperature() + 32;
     Serial.print("Temperature (ºC): ");
     Serial.println(temperatureF);*/
-    
-    
+
+
     // Write to ThingSpeak. There are up to 8 fields in a channel, allowing you to store up to 8 different
     // pieces of information in a channel.  Here, we write to field 1.
     int x = ThingSpeak.writeField(myChannelNumber, 1, temperatureC, myWriteAPIKey);
@@ -111,12 +129,13 @@ void loop() {
 ```
 
 #requiredLibraries
+
 - `ThingSpeak.h`
 
 - Initialize the The thinkspeak Client `ThingSpeak.begin(client);` inside the `void setup()`
 
-
 #imporatant
+
 ```c
 unsigned long myChannelNumber = X;
 const char * myWriteAPIKey = "XXXXXXXXXXXXXXXX";
@@ -124,3 +143,7 @@ const char * myWriteAPIKey = "XXXXXXXXXXXXXXXX";
 int x = ThingSpeak.writeField(myChannelNumber, 1, temperatureC, myWriteAPIKey);
 
 ```
+
+#### Another Thinkspeak
+
+- [Reference: Devcodef1.com](https://devcodef1.com/news/1027971/send-sensor-data-to-thingspeak-using-nodemcu-esp8266-and-arduino-uno#:~:text=Now%20that%20we%20have%20set%20up%20the%20hardware%2C,Upload%20the%20following%20code%20to%20the%20NodeMCU%20ESP8266%3A)

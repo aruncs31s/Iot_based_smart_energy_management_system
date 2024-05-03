@@ -1,0 +1,147 @@
+// Include all Custom headers Here
+
+#include "configs.h"
+#include "project.h"
+#include <ESP32Servo.h>
+
+void EnergyManagement(){};
+void SolarTracking(){};
+
+// // Creating Project Pin Configs
+// Project_Config SolarTracking_Config;
+// Project_Config EnergyManagment_Config;
+// Project_Config EnergyMonitoring_Config;
+// void SolarTracking_fn(void *pvParameters);
+
+// // Create a Servo object
+// Servo Horizontal_Servo; // Horizontal
+// Servo Vertical_Servo;   // Vertical
+
+// INFO: Multi Threading
+
+TaskHandle_t solar_tracking_idza;
+TaskHandle_t energy_management_id;
+
+// HACK: Implement a function to multitasking that accepts function name and
+// core as its actual args*
+
+void setup() {
+
+  Serial.begin(9600);
+  delay(100);
+  analogReadResolution(10);
+  // while (1) {
+  // SolarTracking_Config.pins.LDR = {.p1 = LDR_TOP_RIGHT,
+  //                                  .p2 = LDR_TOP_LEFT,
+  //                                  .p3 = LDR_BOTTOM_RIGHT,
+  //                                  .p4 = LDR_BOTTOM_LEFT};
+  // SolarTracking_Config.pins.Servo = {
+  //     .p1 = HORIZONTAL_SERVO,
+  //     .p2 = VERTICAL_SERVO,
+
+  // };
+  // Horizontal_Servo.attach(SolarTracking_Config.pins.Servo.p1);
+  // Vertical_Servo.attach(SolarTracking_Config.pins.Servo.p2);
+//  Execute SolarTracking_fn in core 0
+  xTaskCreatePinnedToCore(
+      SolarTracking,   /* Task function. */
+      "Solar_Tracking",            /* name of task. */
+      10000,              /* Stack size of task */
+      NULL,               /* parameter of the task */
+      1,                  /* priority of the task */
+      &solar_tracking_id, /* Task handle to keep track of created task */
+      0);                 /* pin task to core */
+  delay(500);
+
+// Execute EnergyManagement_fn in core 1
+  xTaskCreatePinnedToCore(
+      EnergyManagement,   /* Task function. */
+      "Energy_Managment",               /* name of task. */
+      10000,                 /* Stack size of task */
+      NULL,                  /* parameter of the task */
+      1,                     /* priority of the task */
+      &energy_management_id, /* Task handle to keep track of created task */
+      1);                    /* pin task to core 1 */
+  delay(500);
+}
+
+void loop() {}
+
+void SolarTracking(void * pvParameters) {
+  Serial.print("Task1 running on core ");
+  Serial.println(xPortGetCoreID());
+
+  // // OPTIMIZE: Improve the solar Tracking Pannel Adjestment Algorithm
+
+  // // TODO: Implement a function to trigger Solar Tracking
+  // int SolarTracking_Stop_Condition = false;
+
+  // int current_Servo_1_value = 0;
+
+  // // Run Infinite Loop
+  // while (SolarTracking_Stop_Condition == false){
+  // int avg_top = SolarTracking_Config.avg_LDR(
+  //       {&SolarTracking_Config.pins.LDR.p1, &SolarTracking_Config.pins.LDR.p2});
+  // int avg_bottom = SolarTracking_Config.avg_LDR(
+  //     {&SolarTracking_Config.pins.LDR.p3, &SolarTracking_Config.pins.LDR.p4});
+  // int avg_right = SolarTracking_Config.avg_LDR(
+  //     {&SolarTracking_Config.pins.LDR.p1, &SolarTracking_Config.pins.LDR.p3});
+  // int avg_left = SolarTracking_Config.avg_LDR(
+  //     {&SolarTracking_Config.pins.LDR.p2, &SolarTracking_Config.pins.LDR.p4});
+  // delay(3000);
+  // Serial.print("avg_top : ");
+  // Serial.println(avg_top);
+  // Serial.print("avg left ");
+  // Serial.println(avg_left);
+  // Serial.print("avg bottom ");
+  // Serial.println(avg_bottom);
+  // Serial.print("avg_right : ");
+  // Serial.println(avg_right);
+  // if (avg_top < reading_LDR_bottom_avg) {
+  //   Servo_2.write(current_Servo_1_value - 1);
+  //   if (current_Servo_1_value > SERVO_LIMIT_HIGH) {
+  //     current_Servo_1_value = SERVO_LIMIT_HIGH;
+  //   }
+  //   delay(8);
+  // } else if (reading_LDR_bottom_avg < reading_LDR_top_avg) {
+  //   Servo_2.write(current_Servo_1_value + 1);
+  //   if (current_Servo_1_value < SERVO_LIMIT_LOW) {
+  //
+  //     current_Servo_1_value = SERVO_LIMIT_LOW;
+  //   }
+  //   delay(8);
+  // } else {
+  //   Servo_2.write(current_Servo_1_value);
+  // }
+  //
+  // if (reading_LDR_right_avg < reading_LDR_left_avg) {
+  //   Servo_1.write(current_Servo_1_value - 1);
+  //
+  //   if (current_Servo_1_value > SERVO_LIMIT_HIGH) {
+  //     current_Servo_1_value = SERVO_LIMIT_HIGH;
+  //   }
+  //   delay(8);
+  // } else if (reading_LDR_left_avg < reading_LDR_right_avg) {
+  //   Servo_1.write(current_Servo_1_value + 1);
+  //
+  //   if (current_Servo_1_value < SERVO_LIMIT_LOW) {
+  //     current_Servo_1_value = LDR_VALUE_LOW;
+  //   }
+  //   delay(8);
+  // } else {
+  //   Servo_1.write(current_Servo_1_value);
+  // }
+  //
+// }
+}
+void EnergyManagement(void * pvParameters) {
+
+  Serial.print("Task2 running on core ");
+  Serial.println(xPortGetCoreID());
+  // 
+  // void ControllRealay();
+  // Void TurnLight();
+
+
+
+}

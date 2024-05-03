@@ -47,9 +47,9 @@ void loop()
   int avgleft = (topl + botl) / 2; //average of left LDRs
   int avgright = (topr + botr) / 2; //average of right LDRs
 
-  if (avgtop < avgbot)=
+  if ( avgbot > avgtop)=
   {
-    servoverti.write(servov -1);
+    servoverti.write(servov -1);// Rotate Up
     if (servov > servovLimitHigh) 
     { 
       servov = servovLimitHigh;

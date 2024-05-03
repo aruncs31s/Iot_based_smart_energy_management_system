@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Solar Tracking Data</title>
+  </head>
+  <body>
+    <h1>Solar Tracking Data</h1>
+    <p>Voltage: <span id="voltage"></span> V</p>
+    <p>Current: <span id="current"></span> A</p>
+
+    <!-- Option 1: ESP32 Web Server -->
+    <!-- Update the span elements with voltage and current values in your ESP32 code -->
+
+    <!-- Option 2: Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.35.4/dist/umd/supabase.min.js"></script>
+    <script>
+      const supabaseUrl = "https://ljueddruwvnkhsuaicyl.supabase.co";
+      const supabaseKey
+
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxqdWVkZHJ1d3Zua2hzdWFpY3lsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTQ3NDk3MDAsImV4cCI6MjAzMDMyNTcwMH0.UQOp47d1SvBnRlyvrWxBRzqCx5_Bf4PWU7JoWS1hhmc";
+
+      const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+
+      async function fetchData() {
+        const { data, error } = await supabase
+          .from("sensor_data")
+          .select("voltage, current")
+          .order("created_at", { ascending: false })
+          .limit(1);
+
+        if (error) {
+          console.error("Error fetching data:", error);
+        } else {
+          const { voltage, current } = data[0];
+          document.getElementById("voltage").textContent = voltage;
+          document.getElementById("current").textContent = current;
+        }
+      }
+
+      fetchData();
+      setInterval(fetchData, 5000); // Fetch data every 5 seconds
+    </script>
+  </body>
+</html>

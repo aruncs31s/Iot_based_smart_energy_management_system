@@ -6,13 +6,19 @@ Github : https://github.com/aruncs31s
 #include <ESP32Servo.h>
 
 // Define the GPIO (2,15) pin connected to the servo
-const int SERVO_PIN_1 = 2;
-const int SERVO_PIN_2 = 15;
+const int SERVO_PIN_1 = 12;
+const int SERVO_PIN_2 = 13
+
+
+
+
+
+;
 // Define the GPIO ADC Pins for LDR Sensors
-const int LDR_LEFT_TOP = 36;
-const int LDR_LEFT_BOTTOM = 39;
-const int LDR_RIGHT_TOP = 34;
-const int LDR_RIGHT_BOTTOM = 35;
+const int LDR_LEFT_TOP = 34;
+const int LDR_LEFT_BOTTOM = 32;
+const int LDR_RIGHT_TOP = 35;
+const int LDR_RIGHT_BOTTOM = 33;
 
 // Setting the LDR resistance Value thresholds
 const int LDR_VALUE_HIGH = 900;
@@ -48,7 +54,11 @@ void loop() {
   int reading_LDR_left_top = analogRead(LDR_RIGHT_TOP);
   int reading_LDR_right_top = analogRead(LDR_RIGHT_TOP);
   int reading_LDR_right_bottom = analogRead(LDR_RIGHT_BOTTOM);
-
+  delay(1000);
+  Serial.println("LB : "+String(reading_LDR_left_bottom)) ; delay(1000);
+  Serial.println(" LT "+String(reading_LDR_left_top))  ;delay(1000);
+  Serial.println("reading_LDR_right_top "+String(reading_LDR_right_top)) ; delay(1000);
+  Serial.println("reading_LDR_right_bottom "+String(reading_LDR_right_bottom));
   int reading_LDR_left_avg =
       (reading_LDR_left_top + reading_LDR_left_bottom) / 2;
   int reading_LDR_right_avg =

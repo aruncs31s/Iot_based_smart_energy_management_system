@@ -8,10 +8,10 @@ tags:
 Starting Date: 2024-01-26
 Target Date: 2024-04-07
 ---
- z<h1 align="center"> <b>Iot Based Smart Energy Managment System</b></h1>
-
+<h1 align="center"> <b>Iot Based Smart Energy Managment System</b></h1>
 
 ## Contents
+- [[Projects/Iot_based_smart_energy_management_system/Obsidian_Notes/ESP32/esp32|esp32|Programming]]
 - [Diagrams]()
 	- [Mini_Project](Mini_Project.canvas)
 	- [[Block Diagram.canvas|Block Diagram]]

@@ -6,7 +6,7 @@ tags: []
 
 ## ESP32
 
-### Contents
+#### Contents
 - [Specs](#esp32%20specs)
 - [[Pinout.canvas|Pinout]]
 - [ADC Interfacing](/ESP32/analog_interfacing)
@@ -202,10 +202,10 @@ Serial.begin(115200);
 | :----- | :----- | :---------------------------------------------- | ---------------- |
 | D25    | GPIO2  | Connecting the Horzontal Servo - Solar Tracking | Solar Tracking   |
 | D33    | GPIO15 | Connecting the Vertical Servo - Solar Tracking  | ST               |
-| D34    | GPIO34 | Connecting the LDR at Top Right                 | ST               |
-| D35    | GPIO35 | Connecting the LDR at Top Left                  | ST               |
-| VP     | GPIO36 | Connecting the LDR at  Bottom Right             | ST               |
-| VN     | GPIO39 | Connecting the LDR at Bottom Left               | ST               |
+| D34    | GPIO13 | Connecting the LDR at Top Right                 | ST               |
+| D35    | GPIO12 | Connecting the LDR at Top Left                  | ST               |
+| VP     | GPIO14 | Connecting the LDR at  Bottom Right             | ST               |
+| VN     | GPIO27 | Connecting the LDR at Bottom Left               | ST               |
 | D13    | GPIO13 | Connecting the PIR Sensor                       | Energy Managment |
 | D26    | GPIO26 | Connecting the Relay Module IN1                 | EM               |
 | D27    | GPIO27 | Connecting the Relay Module IN1                 | EM               |
@@ -302,4 +302,302 @@ void loop() {
 }
 
 
+```
+
+
+##### Attempt 1
+- main.cpp
+
+```cpp
+// Include all Custom headers Here
+
+  
+
+#include "configs.h"
+
+#include "project.h"
+
+#include <ESP32Servo.h>
+
+  
+
+void EnergyManagement();
+
+void SolarTracking(void *pvParameters);
+
+  
+
+// Creating Project Pin Configs
+
+Project_Config SolarTracking_Config;
+
+Project_Config EnergyManagment_Config;
+
+Project_Config EnergyMonitoring_Config;
+
+void SolarTracking_fn(void *pvParameters);
+
+  
+
+// // Create a Servo object
+
+Servo Horizontal_Servo; // Horizontal
+
+Servo Vertical_Servo; // Vertical
+
+  
+  
+  
+
+// Multi-Threading
+
+TaskHandle_t solar_tracking_id;
+
+  
+
+void setup() {
+
+  
+
+Serial.begin(9600);
+
+delay(100);
+
+analogReadResolution(10);
+
+  
+
+SolarTracking_Config.pins.LDR = {.p1 = LDR_TOP_RIGHT,
+
+.p2 = LDR_TOP_LEFT,
+
+.p3 = LDR_BOTTOM_RIGHT,
+
+.p4 = LDR_BOTTOM_LEFT};
+
+SolarTracking_Config.pins.Servo = {
+
+.p1 = HORIZONTAL_SERVO,
+
+.p2 = VERTICAL_SERVO,
+
+  
+
+};
+
+Horizontal_Servo.attach(SolarTracking_Config.pins.Servo.p1);
+
+Vertical_Servo.attach(SolarTracking_Config.pins.Servo.p2);
+
+  
+
+xTaskCreatePinnedToCore(
+
+SolarTracking, /* Task function. */
+
+"Solar_Tracking", /* name of task. */
+
+10000, /* Stack size of task */
+
+NULL, /* parameter of the task */
+
+1, /* priority of the task */
+
+&solar_tracking_id, /* Task handle to keep track of created task */
+
+1); /* pin task to core */
+
+delay(500);
+
+}
+
+void loop() {}
+
+  
+
+void EnergyManagement() { Serial.println("hi"); };
+
+	void SolarTracking(void *pvParameters) {
+
+  
+
+Serial.print("Task2 running on core ");
+
+Serial.println(xPortGetCoreID());
+
+};
+```
+
+
+###### config.h
+
+```c
+// WARN: Set all Pin Configuration and Setup related to esp32 Here
+
+#ifndef CONFIGS_H
+
+#define CONFIGS_H
+
+  
+
+#define LDR_TOP_RIGHT 13
+
+#define LDR_TOP_LEFT 12
+
+#define LDR_BOTTOM_RIGHT 14
+
+#define LDR_BOTTOM_LEFT 27
+
+  
+
+#define HORIZONTAL_SERVO 2
+
+#define VERTICAL_SERVO 15
+
+#define SERVO_PIN3 7
+
+#define SERVO_PIN4 8
+
+  
+
+#define RELAY_PIN1 9
+
+#define RELAY_PIN2 10
+
+#define RELAY_PIN3 11
+
+#define RELAY_PIN4 12
+
+  
+
+// Setting the LDR resistance Value thresholds
+
+#define LDR_VALUE_HIGH = 900;
+
+  
+
+#define LDR_VALUE_LOW = 20;
+
+  
+
+// Servo Motor Rotation Values
+
+#define SERVO_LIMIT_HIGH = 180;
+
+#define SERVO_LIMIT_LOW = 10;
+
+  
+
+#endif
+```
+
+- project.h
+```cpp
+#include <vector>
+
+class Project_Config {
+
+public:
+
+void pass_to_core(const char *&Func_Name, const char &Task_Name,
+
+int &core_no) {};
+
+struct pins {
+
+struct LDR {
+
+  
+
+short p1, p2, p3, p4;
+
+short avg_LDR(const std::vector<int> &pin_arr);
+
+} LDR;
+
+struct Servo {
+
+  
+
+short p1, p2;
+
+void Servo_attach(int &pin) {}
+
+} Servo;
+
+struct Relay {
+
+  
+
+short p1, p2;
+
+} Relay;
+
+  
+
+} pins;
+
+int avg_LDR(const std::vector<int> &pin_arr) {
+
+Serial.println("Calculating AVG");
+
+Serial.print(pin_arr[0]); Serial.print(" and "); Serial.print(pin_arr[1]);
+
+// return (analogRead(pin_arr[0]) + analogRead(pin_arr[1]) / 2);
+
+}
+
+Project_Config() {}
+
+};
+```
+
+```cpp
+if (avgtop < avgbot)
+  {
+    servoverti.write(servov -1);
+    if (servov > servovLimitHigh) 
+     { 
+      servov = servovLimitHigh;
+     }
+    delay(8);
+  }
+  else if (avgbot < avgtop)
+  {
+    servoverti.write(servov +1);
+    if (servov < servovLimitLow)
+  {
+    servov = servovLimitLow;
+  }
+    delay(8);
+  }
+  else 
+  {
+    servoverti.write(servov);
+  }
+  
+  if (avgleft > avgright)
+  {
+    servohori.write(servoh -1);
+    if (servoh > servohLimitHigh)
+    {
+    servoh = servohLimitHigh;
+    }
+    delay(8);
+  }
+  else if (avgright > avgleft)
+  {
+    servohori.write(servoh +1);
+    if (servoh < servohLimitLow)
+     {
+     servoh = servohLimitLow;
+     }
+    delay(8);
+  }
+  else 
+  {
+    servohori.write(servoh); // write means run servo
+  }
+  delay(50);
+}
 ```
