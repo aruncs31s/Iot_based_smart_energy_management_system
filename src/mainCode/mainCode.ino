@@ -2,12 +2,24 @@
 #include "configs/pins.h"
 #include "configs/project.h"
 #include <ESP32Servo.h>
+
 Servo Vertical_Servo;
 Servo Horizontal_Servo;
 
 void Solar_Tracking();
+void Energy_Mangement();
+// PIN Decelerations
+const int &tol = TOLERANCE;
+const int &v_low = V_SERVO_LIMIT_LOW;
+const int &v_high = V_SERVO_LIMIT_HIGH;
+const int &h_low = H_SERVO_LIMIT_LOW;
+const int &h_high = H_SERVO_LIMIT_HIGH;
 
-// short diffrence(unsigned short value_1, unsigned short value_2) {}
+// Energy Management
+const int &led = RELAY_PIN_LED;
+const int &fan = RELAY_PIN_FAN;
+// Define sensor pin
+const int &sensor = RADAR_PIN;
 
 void setup() {
   Serial.begin(9600);
@@ -15,24 +27,31 @@ void setup() {
   delay(50);
   Vertical_Servo.attach(VERTICAL_SERVO_PIN);
   Horizontal_Servo.attach(HORIZONTAL_SERVO_PIN);
+
+  // For Energy_Mangement
+  pinMode(led, OUTPUT);   // initialize relay as an output
+  pinMode(fan, OUTPUT);   // initialize relay as an output
+  pinMode(sensor, INPUT); // initialize sensor as an input
+                          //
   delay(3000);
 
   // NOTE: Configs related to Energy_Mangement
 
   pinMode(RADAR_PIN, INPUT);
+
+  Serial.println("Finished Configuring");
 }
-void loop() { Solar_Tracking(); }
+void loop() {
+  // Solar_Tracking();
+  Energy_Management();
+}
 
 void Solar_Tracking() {
+  Serial.println("Executing Solar Tracking");
   short V_current_position = 45;
   short H_current_position = 180;
   Vertical_Servo.write(V_current_position);
   Horizontal_Servo.write(H_current_position);
-  const int &tol = TOLERANCE;
-  const int &v_low = V_SERVO_LIMIT_LOW;
-  const int &v_high = V_SERVO_LIMIT_HIGH;
-  const int &h_low = H_SERVO_LIMIT_LOW;
-  const int &h_high = H_SERVO_LIMIT_HIGH;
 
   int avg_top = avg(LDR_TOP_RIGHT, LDR_TOP_LEFT);
   int avg_bottom = avg(LDR_TOP_RIGHT, LDR_TOP_LEFT);
@@ -76,3 +95,26 @@ void Solar_Tracking() {
 // int Energy_Mangement(){
 
 // }
+//
+void Energy_Management() {
+  // Serial.println("Executing Energy Management");
+  // if (digitalRead(sensor) == HIGH) {
+  //   digitalWrite(fan, HIGH);
+  //   Serial.println("Motion detected! Light turned ON");
+  // } else {
+  //   digitalWrite(fan, LOW); // turn relay OFF (light OFF)
+  //   Serial.println("No motion detected. Light turned OFF");
+  // }
+  delay(1000);
+  digitalWrite(fan, HIGH);
+  delay(3000);
+  digitalWrite(fan, LOW);
+   delay(1000);
+  digitalWrite(led, HIGH);
+  delay(3000);
+  digitalWrite(led, LOW);
+  
+
+
+
+}

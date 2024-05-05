@@ -6,14 +6,26 @@
 
 #### Introduction
 - PIR (Passive Infrared) sensor is a type of electronic sensor used to detect the presence of living beings by measuring changes in the infrared (IR) radiation in the environment. 
- - It works by detecting the heat emitted by objects, which is a form of infrared radiation. 
-
+- It works by detecting the heat emitted by objects, which is a form of infrared radiation. 
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcqN5CSX5EZQ6oroMNjNpOaExNNKFmg1StFqOIzUxds6b7sjunsLurrNu0lHPwhMZSTos&usqp=CAU">
+#### Specs
+- Operating Voltage `5V – 12V`
+- Output Signal Voltage `3.3V`
+
+
+##### Operating Modes
+1. **Single Trigger Mode**: The constant motion will cause a single trigger.
+2. **Multiple Trigger Mode**: The constant motion will cause a series of triggers.
+
+
+
 
 #### Interfacing
 [Credit](https://www.electronicwings.com/esp32/pir-sensor-interfacing-with-esp32)
 
 ![image|400x300](https://www.electronicwings.com/storage/PlatformSection/TopicContent/444/description/PIR%20Sensor%20Interfacing%20with%20ESP32.jpg)
+
+
 
 *Note*
 - Keep Far form WiFi Antenna [why](https://www.electronicwings.com/esp32/pir-sensor-interfacing-with-esp32)

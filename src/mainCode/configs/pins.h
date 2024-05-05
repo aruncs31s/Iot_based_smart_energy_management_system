@@ -10,7 +10,7 @@
 
 // WARN: All Pins Related to Energy management is defined Here
 
-#define RELAY_PIN1 9
-#define RELAY_PIN2 10
+#define RELAY_PIN_LED 27
+#define RELAY_PIN_FAN 26
 
-#define RADAR_PIN 27
+#define RADAR_PIN 14
