@@ -199,18 +199,19 @@ Serial.begin(115200);
 
 
 | Pin No | GPIO   | Used For                                        |                  |
-|:------ |:------ |:----------------------------------------------- | ---------------- |
+| :----- | :----- | :---------------------------------------------- | ---------------- |
 | D25    | GPIO12 | Connecting the Horzontal Servo - Solar Tracking | Solar Tracking   |
 | D33    | GPIO13 | Connecting the Vertical Servo - Solar Tracking  | ST               |
 | D34    | GPIO35 | Connecting the LDR at Top Right                 | ST               |
 | D35    | GPIO34 | Connecting the LDR at Top Left                  | ST               |
 | D33    | GPIO33 | Connecting the LDR at  Bottom Right             | ST               |
 | D32    | GPIO32 | Connecting the LDR at Bottom Left               | ST               |
-| D25    |GPIO25  |Connecting the solar sensor                      | ST               |
+| D25    | GPIO25 | Connecting the solar panel                      | ST               |
 | D13    | GPIO13 | Connecting the PIR Sensor                       | Energy Managment |
 | D26    | GPIO26 | Connecting the Relay Module IN1                 | EM               |
 | D27    | GPIO27 | Connecting the Relay Module IN1                 | EM               |
-| D15    | GPIO14 | Connecting RCWL Radar Sensor                    | EM               |
+| D14    | GPIO14 | Connecting RCWL Radar Sensor                    | EM               |
+| D15    | GPIO15 | Connect LDR Sensor                              |                  |
 |        |        |                                                 |                  |
 
 #pinDefine

@@ -2,10 +2,14 @@
 #include "configs/pins.h"
 #include "configs/project.h"
 #include <ESP32Servo.h>
+// #include <WiFi.h>
+#include <ThingSpeak.h>
+#include <WiFiClient.h>
 
 Servo Vertical_Servo;
 Servo Horizontal_Servo;
 
+void wifi_connect();
 void Solar_Tracking();
 void Energy_Mangement();
 // PIN Decelerations
@@ -20,6 +24,12 @@ const int &led = RELAY_PIN_LED;
 const int &fan = RELAY_PIN_FAN;
 // Define sensor pin
 const int &sensor = RADAR_PIN;
+const int &ldr = LDR_PIN;
+
+// TODO: Complete the code Thinkspeak
+const char *server = "api.thingspeak.com";
+const char *apiKey = "YOUR_THINGSPEAK_API_KEY";
+WiFiClient WiFi;
 
 void setup() {
   Serial.begin(9600);
@@ -38,6 +48,7 @@ void setup() {
   // NOTE: Configs related to Energy_Mangement
 
   pinMode(RADAR_PIN, INPUT);
+  wifi_connect();
 
   Serial.println("Finished Configuring");
 }
@@ -91,30 +102,58 @@ void Solar_Tracking() {
     }
     Horizontal_Servo.write(H_current_position);
   }
+  measure_voltage(25, 6.0);
 }
 // int Energy_Mangement(){
 
 // }
 //
 void Energy_Management() {
-  // Serial.println("Executing Energy Management");
-  // if (digitalRead(sensor) == HIGH) {
-  //   digitalWrite(fan, HIGH);
-  //   Serial.println("Motion detected! Light turned ON");
-  // } else {
-  //   digitalWrite(fan, LOW); // turn relay OFF (light OFF)
-  //   Serial.println("No motion detected. Light turned OFF");
-  // }
-  delay(1000);
-  digitalWrite(fan, HIGH);
-  delay(3000);
-  digitalWrite(fan, LOW);
-   delay(1000);
-  digitalWrite(led, HIGH);
-  delay(3000);
-  digitalWrite(led, LOW);
-  
+  // Fan Controll
+  Serial.println("Executing Energy Management");
+  if (digitalRead(sensor) == HIGH) {
+    digitalWrite(fan, HIGH);
+    Serial.println("Truning on the FAN");
+  } else {
+    digitalWrite(fan, LOW); // turn relay OFF (light OFF)
+    Serial.println("Turning off the FAN");
+  }
+  // Light Controll
+  if (analogRead(ldr) >= 3600) {
+    digitalWrite(led, LOW);
+  } else {
+    digitalWrite(led, HIGH);
+  }
+  //
+}
+void wifi_connect() {
+  const char *ssid = "Test";
+  const char *password = "12345678";
 
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(1000);
+    Serial.println("Connecting to WiFi...");
+  }
+  Serial.println("Connected to WiFi");
+}
+bool Thinkspeak() {
+  // Thinkspeak
+  ThingSpeak.begin(client);
+}
+bool Thinkspeak_upload(short id, float sensor_value) {
+  ThingSpeak.setField(id, sensor_value);
 
+  int httpCode = ThingSpeak.writeFields(CHANNEL_ID, apiKey);
 
+  if (httpCode == 200) {
+    Serial.println("Sensor data sent to ThingSpeak!");
+  } else {
+    Serial.println("Error sending sensor data to ThingSpeak.");
+  }
+
+  delay(10);
+}
+float measure_voltage(short pin, int og_voltage) {
+  return (analogRead(pin) / 4096) * 3.3;
 }
