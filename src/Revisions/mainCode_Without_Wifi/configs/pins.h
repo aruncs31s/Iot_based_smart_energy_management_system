@@ -16,7 +16,3 @@
 
 #define RADAR_PIN 14
 #define LDR_PIN 15
-
-// WARN: All Pins Related to Energy Monitroing
-
-#define CURRENT_SENSOR_PIN 04

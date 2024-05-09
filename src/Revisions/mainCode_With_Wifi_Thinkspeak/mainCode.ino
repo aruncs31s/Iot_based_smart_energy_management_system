@@ -9,17 +9,8 @@
 Servo Vertical_Servo;
 Servo Horizontal_Servo;
 
-ThingSpeakData Data;
-
-const char *ssid = "TP-Link_2.4G";
-const char *password = "AP32#0597ap@32";
-const char *server = "api.thingspeak.com";
-const char *apiKey = "TP84T1ANZST8RVXM";
-
 void Solar_Tracking();
 void Energy_Mangement();
-void Energy_Monitoring();
-float getVPP(int sensor);
 
 // PIN Decelerations
 const int &tol = TOLERANCE;
@@ -37,13 +28,17 @@ const int &fan = RELAY_PIN_FAN;
 const int &sensor = RADAR_PIN;
 const int &ldr = LDR_PIN;
 
-// // NOTE: Multithreading Handlers
-//
-// TaskHandle_t solar_tracking_id;
-// TaskHandle_t energy_management_id;
+// NOTE: Multithreading Handlers
+
+TaskHandle_t solar_tracking_id;
+TaskHandle_t energy_management_id;
 
 // TODO: Complete the code Thinkspeak
 
+const char *ssid = "Realme";
+const char *password = "8547591968";
+const char *server = "api.thingspeak.com";
+const char *apiKey = "TP84T1ANZST8RVXM";
 WiFiClient client;
 
 void setup() {
@@ -76,9 +71,8 @@ void setup() {
   delay(500);
 }
 void loop() {
-  // Solar_Tracking();
+  Solar_Tracking();
   Energy_Management();
-  Energy_Monitoring();
 }
 
 void Solar_Tracking() {
@@ -125,9 +119,26 @@ void Solar_Tracking() {
     }
     Horizontal_Servo.write(H_current_position);
   }
+  Serial.println("Current Volage = :" +
+                 String(((float)analogRead(25) / 4096) * 3.3));
+  float voltage = ( analogRead(25) / 4096) * 3.3)
   delay(1);
-}
+  int status = ThingSpeak.writeField(2537564, 1, voltage, apiKey);
+  // uncomment if you want to get temperature in Fahrenheit
+  // int x = ThingSpeak.writeField(myChannelNumber, 1, temperatureF,
+  // myWriteAPIKey);
 
+  if (status == 200) {
+    Serial.println("Channel update successful.");
+  } else {
+    Serial.println("Problem updating channel. HTTP error code " +
+                   String(status));
+  }
+}
+// int Energy_Mangement(){
+
+// }
+//
 void Energy_Management() {
   // Fan Controll
   Serial.println("Executing Energy Management");
@@ -151,54 +162,4 @@ void Energy_Management() {
   }
   //
   delay(1);
-}
- 
-const int c_sensor = CURRENT_SENSOR_PIN;
-const int mVperAmp =
-    100; // this the 5A version of the ACS712 -use 100 for 20A Module
-void Energy_Monitoring() { 
-  float Watt = 0;
-  double Voltage = 0;
-  double VRMS = 0;
-  double AmpsRMS = 0;
-   Voltage = getVPP(c_sensor);
-  VRMS = (Voltage / 2.0) * 0.707; // root 2 is 0.707
-  AmpsRMS =
-      ((VRMS * 1000) / mVperAmp) ; // 0.48 is the error when measuring the amp
-
-  Serial.print(AmpsRMS);
-  Serial.print(" Amps RMS  ---  ");
-  Watt =  (AmpsRMS * 5.0 / 1.2);
-  // note: 1.2 is my own empirically established calibration factor
-  // as the voltage measured at D34 depends on the length of the OUT-to-D34 wire
-  // 240 is the main AC power voltage – this parameter changes locally
-  Serial.print(Watt);
-  
-  
-  delay(1); 
-  ThingSpeak.writeField(2537564, 2, Watt, apiKey);
-}
-float getVPP(int sensor) {
-   float result;
-  short readValue;       // value read from the sensor
-  short maxValue = 0;    // store max value here
-  short minValue = 4096; // store min value here ESP32 ADC resolution
-
-  uint32_t start_time = millis();
-  while ((millis() - start_time) < 1000) // sample for 1 Sec
-  {
-    readValue = analogRead(c_sensor);
-    // see if you have a new maxValue
-    if (readValue > maxValue) {
-      /*record the maximum sensor value*/
-      maxValue = readValue;
-    }
-    if (readValue < minValue) {
-      /*record the minimum sensor value*/
-      minValue = readValue;
-    }
-  }
-
-  // Subtract min from max
-  result = ((maxValue - minValue) * 3.3) / 4096.0; // ESP32 ADC resolution 4096
 }

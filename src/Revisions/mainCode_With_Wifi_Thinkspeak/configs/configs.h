@@ -1,4 +1,3 @@
-#include "pins.h"
 // NOTE: For Solar Tracking
 
 // Setting the LDR resistance Value thresholds
@@ -16,6 +15,3 @@
 #define V_SERVO_LIMIT_LOW 30
 
 #define TOLERANCE 90
-
-// NOTE: For Energy Monitoring
-#define SUPPLY_VOLTAGE 5

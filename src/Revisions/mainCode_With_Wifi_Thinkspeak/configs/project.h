@@ -10,8 +10,3 @@ float measure_voltage(short pin, int og_voltage) {
   Serial.println(analogRead(pin));
   return ((float)analogRead(pin) / 4095) * og_voltage;
 }
-struct ThingSpeakData {
-  int value;
-  short channelNumber;
-};
-// float measure_current() {}

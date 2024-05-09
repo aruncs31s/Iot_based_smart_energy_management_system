@@ -22,19 +22,19 @@ Target Date: 2024-04-07
 #### Todos
 <!-- TODO: Complete This -->
 - [ ] [[Energy Monitoring]] 
-- [ ] [[Solar Tracking]]
+- [x] [[Solar Tracking]]
 	- [x] [Interfacing]()
 	- [ ] [Printing 3D Model]()
-	- [ ] [Finalize]()
+	- [x] [Finalize]()
 
-- [ ] [[Energy Management]]
-    - [ ] [Fan Control]()
-    - [ ] [Light Control]()
+- [x] [[Energy Management]]
+    - [x] [Fan Control]()
+    - [x] [Light Control]()
     - [ ] 
  - Future Tasks
 	- [ ] [[Monitoring Server]]
 
-
+- Future Tasks
 
 #### Tasks
 
