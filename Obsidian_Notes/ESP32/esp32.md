@@ -3,7 +3,6 @@ id: esp32
 aliases: []
 tags: []
 ---
-
 ## ESP32
 
 #### Contents

@@ -27,7 +27,7 @@
 ### Working
 
 The RCWL-0516 module employs ==“Doppler Radar”== – a specialized radar that makes use of the **Doppler Effect** (also known as **Doppler shift**) to detect motion and trigger proximity alerts.
-- [Doppler Effect](Science/Physics.md#Doppler%20Effect)
+- [Doppler Effect](Physics.md#Doppler%20Effect)
 
 > [!NOTE] Doppler Effect
 >  The change in frequency observed by a stationary observer when the source of the frequency is moving. This holds true for all sorts of waves, such as water, light, radio, and sound
