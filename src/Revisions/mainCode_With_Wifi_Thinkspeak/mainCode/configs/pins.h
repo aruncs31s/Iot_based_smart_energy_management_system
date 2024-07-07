@@ -15,4 +15,4 @@
 #define RELAY_PIN_FAN 26
 
 #define RADAR_PIN 14
-#define LDR_PIN 15
+#define LDR_PIN 36

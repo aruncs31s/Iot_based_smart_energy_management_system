@@ -11,7 +11,7 @@
 #define H_SERVO_LIMIT_LOW 5;
 
 // NOTE: Vertical Servo
-#define V_SERVO_LIMIT_HIGH 60
+#define V_SERVO_LIMIT_HIGH 50
 #define V_SERVO_LIMIT_LOW 30
 
 #define TOLERANCE 90

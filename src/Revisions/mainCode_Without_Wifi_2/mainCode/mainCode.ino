@@ -2,15 +2,13 @@
 #include "configs/pins.h"
 #include "configs/project.h"
 #include <ESP32Servo.h>
-#include <ThingSpeak.h>
-#include <WiFi.h>
 // #include <WiFiClient.h>
 
 Servo Vertical_Servo;
 Servo Horizontal_Servo;
 
 void Solar_Tracking();
-void Energy_Mangement();
+void Energy_Management();
 
 // PIN Decelerations
 const int &tol = TOLERANCE;
@@ -20,6 +18,8 @@ const int &h_low = H_SERVO_LIMIT_LOW;
 const int &h_high = H_SERVO_LIMIT_HIGH;
 short V_current_position = 45;
 short H_current_position = 180;
+float panel_voltage = 0;
+const int &vref = REFERENCE_VOLTAGE;
 
 // Energy Management
 const int &led = RELAY_PIN_LED;
@@ -35,12 +35,6 @@ TaskHandle_t energy_management_id;
 
 // TODO: Complete the code Thinkspeak
 
-const char *ssid = "Realme";
-const char *password = "8547591968";
-const char *server = "api.thingspeak.com";
-const char *apiKey = "TP84T1ANZST8RVXM";
-WiFiClient client;
-
 void setup() {
   Serial.begin(9600);
   // analogReadResolution(10);
@@ -54,28 +48,32 @@ void setup() {
   pinMode(fan, OUTPUT);   // initialize relay as an output
   pinMode(sensor, INPUT); // initialize sensor as an input
                           //
-  delay(3000);
-
+  pinMode(ldr, INPUT);
+  pinMode(15, OUTPUT);
+  pinMode(2, OUTPUT);  // For Energy Management Status
+  pinMode(15, OUTPUT); // For Solar Tracking Status
+  pinMode(4, OUTPUT);  // For Main Loop Status
   // NOTE: Configs related to Energy_Mangement
 
   pinMode(RADAR_PIN, INPUT);
+  pinMode(25, INPUT);
 
-  WiFi.begin(ssid, password);
-  while (WiFi.status() != WL_CONNECTED) {
-    delay(1000);
-    Serial.println("Connecting to WiFi...");
-  }
-  ThingSpeak.begin(client);
 
   Serial.println("Finished Configuring");
-  delay(500);
+
+  delay(2000);
 }
 void loop() {
+  digitalWrite(4, HIGH);
   Solar_Tracking();
   Energy_Management();
+  delay(300);
+  digitalWrite(4, LOW);
 }
 
 void Solar_Tracking() {
+  digitalWrite(15, HIGH);
+  delay(10);
   Serial.println("Executing Solar Tracking");
 
   Vertical_Servo.write(V_current_position);
@@ -119,47 +117,48 @@ void Solar_Tracking() {
     }
     Horizontal_Servo.write(H_current_position);
   }
-  Serial.println("Current Volage = :" +
-                 String(((float)analogRead(25) / 4096) * 3.3));
-  float voltage = ( analogRead(25) / 4096) * 3.3)
-  delay(1);
-  int status = ThingSpeak.writeField(2537564, 1, voltage, apiKey);
-  // uncomment if you want to get temperature in Fahrenheit
-  // int x = ThingSpeak.writeField(myChannelNumber, 1, temperatureF,
-  // myWriteAPIKey);
 
-  if (status == 200) {
-    Serial.println("Channel update successful.");
-  } else {
-    Serial.println("Problem updating channel. HTTP error code " +
-                   String(status));
-  }
+
+  panel_voltage = measure_voltage(39, vref);
+  Serial.print("Solar Panel Voltage = ");
+  Serial.println(panel_voltage, 5);
+
+  delay(10);
+  
+  digitalWrite(15, LOW);
 }
-// int Energy_Mangement(){
 
-// }
-//
 void Energy_Management() {
-  // Fan Controll
+  digitalWrite(2, HIGH);
+  // Fan Control
   Serial.println("Executing Energy Management");
   Serial.println("Radar Sensor Value : " + String(digitalRead(sensor)));
   if (digitalRead(sensor) == HIGH) {
+    Serial.println("Motion Detected ");
     digitalWrite(fan, HIGH);
     Serial.println("Truning on the FAN");
+    
+
   } else {
     digitalWrite(fan, LOW); // turn relay OFF (light OFF)
-    Serial.println("Turning off the FAN");
-  }
-  // Light Controll
-  Serial.println("LDR Value of EM : " + String(analogRead(ldr)));
+    Serial.println("No Motion Detected ");
 
+}
+  // Light Controll
   if (analogRead(ldr) >= 3600) {
+    delay(10);
     digitalWrite(led, LOW);
-    Serial.println("Light OFF");
+    Serial.println("Light Intensity is High");
+    Serial.println("Turing off the Light");
+
   } else {
+    Serial.println("Light Intensity is Low");
     digitalWrite(led, HIGH);
-    Serial.println("Light ON");
+    Serial.println("Turing On the Light");
+
   }
   //
+  digitalWrite(2, LOW);
   delay(1);
+
 }

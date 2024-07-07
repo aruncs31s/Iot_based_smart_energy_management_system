@@ -14,4 +14,6 @@
 #define V_SERVO_LIMIT_HIGH 60
 #define V_SERVO_LIMIT_LOW 30
 
+#define REFERENCE_VOLTAGE 3.3
+
 #define TOLERANCE 90
